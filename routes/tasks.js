@@ -35,3 +35,35 @@ router.post('/', (req, res) => {
 });
 
 export default router;
+
+// PUT update task
+router.put(':/id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const index = tasks.findIndex(t => t.id === id);
+
+    if (index === -1) {
+        return res.status(404).json({ error: 'Task not found' });
+    }
+
+    const { title, completed, categoryId } = req.body;
+
+    task[index] = {
+        ...task[index],
+        title: title || task[index].title,
+        completed: completed !== undefined ? completed : tasks[index].completed, 
+        categoryId: categoryId || tasks[index].categoryId
+    };
+    res.json(tasks[index]);
+});
+
+// DELETE task
+router.delete('/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const index = tasks.findIndex(t => t.id === id);
+
+    if (index === -1) {
+        return res.status(404).json({ error: 'Task not found' });
+    }
+    task.splice(index, 1);
+    res.status(204).send();
+})
