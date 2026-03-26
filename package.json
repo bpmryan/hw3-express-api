@@ -1,6 +1,7 @@
 {
   "name": "hw3-express-api",
   "version": "1.0.0",
+  "type": "module",
   "description": "Continuation of hw2 for advanced web programming, with the addition of creating an Express router and middleware/serverhttp-server",
   "main": "index.js",
   "scripts": {
@@ -13,7 +14,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/bpmryan/hw3-express-api/issues"
   },
